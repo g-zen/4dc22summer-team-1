@@ -17,11 +17,15 @@ public class player : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-          Vector2 force = new Vector2(x, y).normalized;
-          force = force * 10;
+        Vector2 dir = new Vector2(x, y).normalized;
+        if (dir.magnitude > 0)
+        {
+            transform.rotation = Quaternion.FromToRotation(Vector2.up, dir);
+        }
+        dir = dir * 10;
           if (rb.velocity.magnitude < 7) //‘½•ª§ŒÀ‘¬“x
           {
-              rb.AddForce(force); // —Í‚ð‰Á‚¦‚é
+              rb.AddForce(dir); // —Í‚ð‰Á‚¦‚é
           }
     }
 
