@@ -19,9 +19,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public GameObject gameOverUI;
+
     void Start()
     {
-
+        gameOverUI.SetActive(false);
     }
 
     void Update()
@@ -37,11 +39,14 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over");
+        gameOverUI.SetActive(true);
     }
 
     public void Retry()
     {
         Debug.Log("Retry");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameOverUI.SetActive(false);
+
+        FadeManager.Instance.LoadScene(SceneManager.GetActiveScene().name, 0.5f);
     }
 }

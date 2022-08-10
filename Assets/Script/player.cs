@@ -24,4 +24,12 @@ public class player : MonoBehaviour
               rb.AddForce(force); // —Í‚ð‰Á‚¦‚é
           }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Dohyou") == true)
+        {
+            GameManager.instance.GameOver();
+        }
+    }
 }
