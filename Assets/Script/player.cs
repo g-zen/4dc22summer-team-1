@@ -22,18 +22,28 @@ public class player : MonoBehaviour
         {
             transform.rotation = Quaternion.FromToRotation(Vector2.up, dir);
         }
-        dir = dir * 10;
-          if (rb.velocity.magnitude < 7) //‘½•ª§ŒÀ‘¬“x
-          {
-              rb.AddForce(dir); // —Í‚ð‰Á‚¦‚é
-          }
+        dir = dir * 1000 * Time.deltaTime;
+        //if (rb.velocity.magnitude < 20) //‘½•ª§ŒÀ‘¬“x
+        {
+            rb.AddForce(dir); // —Í‚ð‰Á‚¦‚é
+        }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Attack();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("Dohyou") == true)
+        if (collision.CompareTag("Dohyou") == true)
         {
             GameManager.instance.GameOver();
         }
+    }
+    void Attack()//‚Â‚Á‚Ï‚èŠÖ”
+    {
+        Vector2 dir = transform.up;
+        rb.AddForce(dir*90, ForceMode2D.Impulse);
+
     }
 }
