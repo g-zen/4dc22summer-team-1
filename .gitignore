@@ -78,3 +78,5 @@ crashlytics-build.properties
 .DS_Store
 Assets/Scenes/TestScene.unity.meta
 Assets/Scenes/TestScene.unity
+Assets/Script/Guppy.cs
+Assets/Script/Guppy.cs.meta
