@@ -22,6 +22,12 @@ public class CharacterCollision : MonoBehaviour
             }
         }
 
+        if (Input.GetKey (KeyCode.LeftArrow)) {
+            Vector2 force = new Vector2(0, 3);
+        if (rb.velocity.magnitude < 3) {
+            rb.AddForce (force); // 力を加える
+            }
+        }
         
         
         
