@@ -761,8 +761,9 @@ GameObject:
   - component: {fileID: 1869272087}
   - component: {fileID: 1869272086}
   - component: {fileID: 1869272085}
+  - component: {fileID: 1869272088}
   m_Layer: 5
-  m_Name: ReturnTitle
+  m_Name: ReturnTitleButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -831,7 +832,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1869272086}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1869272088}
+        m_TargetAssemblyTypeName: SceneButton, Assembly-CSharp
+        m_MethodName: TranceNextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1869272086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -870,6 +883,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869272083}
   m_CullTransparentMesh: 1
+--- !u!114 &1869272088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869272083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541d3589efa70564b94317113b77bd03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSceneName: Title
 --- !u!1 &1908986381
 GameObject:
   m_ObjectHideFlags: 0
