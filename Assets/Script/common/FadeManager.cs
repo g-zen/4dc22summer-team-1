@@ -8,6 +8,7 @@ public class FadeManager : MonoBehaviour
 {
     public static FadeManager Instance = null;
     public Image sprite;
+    public GameObject canvas;
 
     private float colorNum = 0;
 
@@ -41,6 +42,7 @@ public class FadeManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator TransScene(string scene, float interval)
     {
+        canvas.SetActive(true);
         //だんだん暗く .
         float time = 0;
         while (time <= interval)
@@ -63,5 +65,6 @@ public class FadeManager : MonoBehaviour
             yield return null;
         }
         sprite.color = new Color(colorNum, colorNum, colorNum, 0f);
+        canvas.SetActive(false);
     }
 }
