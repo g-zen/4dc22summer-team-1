@@ -224,7 +224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3841532899216259934, guid: 256aa49cf69f94c2f8bc27b272ea91e5, type: 3}
       propertyPath: m_LinearDrag
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3841532899216259934, guid: 256aa49cf69f94c2f8bc27b272ea91e5, type: 3}
       propertyPath: m_GravityScale
@@ -721,7 +721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3841532899216259934, guid: 256aa49cf69f94c2f8bc27b272ea91e5, type: 3}
       propertyPath: m_LinearDrag
-      value: 0.6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3841532899216259934, guid: 256aa49cf69f94c2f8bc27b272ea91e5, type: 3}
       propertyPath: m_GravityScale
@@ -895,7 +895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3841532899216259934, guid: 256aa49cf69f94c2f8bc27b272ea91e5, type: 3}
       propertyPath: m_LinearDrag
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3841532899216259935, guid: 256aa49cf69f94c2f8bc27b272ea91e5, type: 3}
       propertyPath: m_Sprite
@@ -1404,11 +1404,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8833946306155106811, guid: ab870d2fc1ebdbe4b984886e58f15b7d, type: 3}
       propertyPath: m_Mass
-      value: 4.3
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 8833946306155106811, guid: ab870d2fc1ebdbe4b984886e58f15b7d, type: 3}
       propertyPath: m_LinearDrag
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8833946306155106811, guid: ab870d2fc1ebdbe4b984886e58f15b7d, type: 3}
       propertyPath: m_Constraints
