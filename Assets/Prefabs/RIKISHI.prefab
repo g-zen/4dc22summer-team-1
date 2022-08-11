@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -2170777583325466217}
   - component: {fileID: 8833946306155106811}
   - component: {fileID: 8820479806910493506}
+  - component: {fileID: 2476994002294841604}
   m_Layer: 0
   m_Name: RIKISHI
   m_TagString: Player
@@ -97,6 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b46cf272a2e3b40a5fea187d216684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePower: 3500
+  Force: 160
+  s: 0
+  anim: {fileID: 2476994002294841604}
 --- !u!50 &8833946306155106811
 Rigidbody2D:
   serializedVersion: 4
@@ -134,3 +139,22 @@ CircleCollider2D:
   m_Offset: {x: -0.057399724, y: -0.39271146}
   serializedVersion: 2
   m_Radius: 2.3372853
+--- !u!95 &2476994002294841604
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5122901107149012948}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6f5ef59160110f1419cc0a9b7b96828e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -9,6 +9,8 @@ public class player : MonoBehaviour
     [Header("移動力"), SerializeField] float movePower = 3500f;
     [Header("つっぱり力"), SerializeField] float Force = 160f;
 
+    [SerializeField]Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,8 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float vec = rb.velocity.magnitude;
+        anim.SetFloat("Speed", vec);
         if (GameManager.instance.isGameOver)
         {
             Destroy(gameObject);
