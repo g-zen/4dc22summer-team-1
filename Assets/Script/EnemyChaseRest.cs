@@ -10,7 +10,7 @@ public class EnemyChaseRest : MonoBehaviour
     Rigidbody2D rb;
     EnemyState state;
     float CurrentTime = 0;
-    float LimitTime = 1;
+    [Header("攻撃と待機が入れ変わる時間"), SerializeField]float LimitTime;
     
     public enum EnemyState
     {

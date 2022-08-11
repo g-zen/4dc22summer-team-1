@@ -8,13 +8,14 @@ public class EnemyBoss : MonoBehaviour
     GameObject target;
     Rigidbody2D rb;
     EnemyState state;
-    float CurrentTime = 0;
-    float LimitTime = 3;
-    float AdditionalTime = 2;
-    int SpinCounter = 0;
-    float SpinTime = 0;
-    float SpinLimit = 3;
-    float SpinRelease = 7;
+    float CurrentTime = 0;//
+    [Header("攻撃の時間"), SerializeField]float LimitTime;//
+    [Header("待機時間は攻撃の時間よりどのくらい短いか"), SerializeField]float AdditionalTime;//
+    int SpinCounter = 0;//
+    [Header("回転するのは攻撃と待機を合わせて何回やった後か"), SerializeField]int SpinOrder; 
+    float SpinTime = 0;//
+    [Header("スピン時間"), SerializeField]float SpinLimit = 3;//
+
     
     public enum EnemyState
     {
@@ -63,8 +64,6 @@ public class EnemyBoss : MonoBehaviour
                 SpinTime += Time.deltaTime;
                 Debug.Log("ぐるぐる");
                 transform.Rotate(new Vector3(0,0,4.0f));
-                Vector2 toDirection = target.transform.position - transform.position;
-                this.transform.Translate(Vector2.up * Time.deltaTime * 10.9f);
                 rb.velocity = Vector2.zero;
             }else{
             SpinTime = 0;
