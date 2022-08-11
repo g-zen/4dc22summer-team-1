@@ -61,5 +61,8 @@ public class EnemyChaseRest : MonoBehaviour
                 Debug.Log("休憩中");
             }
         }
+        //if(GameManager.instance.isGameOver == true){
+            //rb.velocity = Vector2.zero;
+        //}
     }
 }
