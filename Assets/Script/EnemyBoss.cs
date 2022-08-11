@@ -10,9 +10,10 @@ public class EnemyBoss : MonoBehaviour
     EnemyState state;
     float CurrentTime = 0;
     float LimitTime = 3;
+    float AdditionalTime = 2;
     int SpinCounter = 0;
     float SpinTime = 0;
-    float SpinLimit = 5;
+    float SpinLimit = 3;
     float SpinRelease = 7;
     
     public enum EnemyState
@@ -40,12 +41,13 @@ public class EnemyBoss : MonoBehaviour
         
         //待機状態分岐
         if(state == EnemyState.wait){
+            CurrentTime += AdditionalTime;
             Debug.Log("待機");
-            state = EnemyState.attack;
 
         ///攻撃状態分岐
         }else if(state == EnemyState.attack){
         // 対象物へのベクトルを算出
+        Debug.Log("攻撃");
             Vector2 toDirection = target.transform.position - transform.position;
             // 対象物へ回転する
             transform.rotation = Quaternion.FromToRotation(Vector2.up, toDirection);
@@ -56,15 +58,18 @@ public class EnemyBoss : MonoBehaviour
 
         //スピン状態
         }else if(state == EnemyState.bossSpin){
+            Debug.Log("回転");
             if(SpinTime < SpinLimit){
                 SpinTime += Time.deltaTime;
                 Debug.Log("ぐるぐる");
-                transform.Rotate(new Vector2(0,2.0f));
+                transform.Rotate(new Vector3(0,0,4.0f));
+                Vector2 toDirection = target.transform.position - transform.position;
+                this.transform.Translate(Vector2.up * Time.deltaTime * 10.9f);
+                rb.velocity = Vector2.zero;
             }else{
-            
             SpinTime = 0;
             CurrentTime = 0;//入れてもダメだった
-            state = EnemyState.wait;
+            state = EnemyState.attack;
             }
 
         }
@@ -75,16 +80,17 @@ public class EnemyBoss : MonoBehaviour
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0f;
             state = EnemyState.end;
-        }else if(SpinCounter == 20){
+        }else if(SpinCounter == 3){
             state = EnemyState.bossSpin;
             SpinCounter = 0;
         }else if(CurrentTime >= LimitTime){
+            Debug.Log("回転準備");
             CurrentTime=0;
             //Stateを変える処理
             if(state == EnemyState.wait){
                 state = EnemyState.attack;
                 //攻撃表示
-                Debug.Log("攻撃中");
+                Debug.Log("攻撃準備");
                 SpinCounter += 1;
             }else if(state == EnemyState.attack){
                 state = EnemyState.wait;
