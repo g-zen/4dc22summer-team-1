@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LimitTime: 3
   AdditionalTime: 2
-  SpinOrder: 0
+  SpinOrder: 3
   SpinLimit: 3
 --- !u!50 &5330353650473282102
 Rigidbody2D:
