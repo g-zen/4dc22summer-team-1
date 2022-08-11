@@ -79,7 +79,7 @@ public class EnemyBoss : MonoBehaviour
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0f;
             state = EnemyState.end;
-        }else if(SpinCounter == 3){
+        }else if(SpinCounter == SpinOrder){
             state = EnemyState.bossSpin;
             SpinCounter = 0;
         }else if(CurrentTime >= LimitTime){
