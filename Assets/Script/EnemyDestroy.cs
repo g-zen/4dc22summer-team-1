@@ -8,6 +8,7 @@ public class EnemyDestroy : MonoBehaviour
     {
         if (collision.CompareTag("Dohyou"))
         {
+            EnemyManager.Instance.OnEnemyDie();
             Destroy(gameObject);
         }
     }
