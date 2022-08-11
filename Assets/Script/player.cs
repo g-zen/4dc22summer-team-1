@@ -26,12 +26,12 @@ public class player : MonoBehaviour
         {
             transform.rotation = Quaternion.FromToRotation(Vector2.up, dir);
         }
-        dir = dir * 1000 * Time.deltaTime;
+        dir = dir * 3500 * Time.deltaTime;
         //if (rb.velocity.magnitude < 20) //‘½•ª§ŒÀ‘¬“x
         {
             rb.AddForce(dir); // —Í‚ð‰Á‚¦‚é
         }
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyUp(KeyCode.Z))
         {
             Attack();
         }
@@ -47,7 +47,7 @@ public class player : MonoBehaviour
     void Attack()//‚Â‚Á‚Ï‚èŠÖ”
     {
         Vector2 dir = transform.up;
-        rb.AddForce(dir*90, ForceMode2D.Impulse);
+        rb.AddForce(dir*160, ForceMode2D.Impulse);
 
     }
 }

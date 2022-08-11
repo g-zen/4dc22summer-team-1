@@ -633,6 +633,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5123125503683471506, guid: 9ac53e973828e0541a0d9663ad7d2f6e, type: 3}
+      propertyPath: maxEnemies
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5123125503683471506, guid: 9ac53e973828e0541a0d9663ad7d2f6e, type: 3}
+      propertyPath: totalEnemiesCount
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5123125503683471507, guid: 9ac53e973828e0541a0d9663ad7d2f6e, type: 3}
       propertyPath: m_Name
       value: EnemyManager
@@ -829,11 +837,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8833946306155106811, guid: ab870d2fc1ebdbe4b984886e58f15b7d, type: 3}
       propertyPath: m_Mass
-      value: 3.8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8833946306155106811, guid: ab870d2fc1ebdbe4b984886e58f15b7d, type: 3}
       propertyPath: m_LinearDrag
-      value: 1
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 8833946306155106811, guid: ab870d2fc1ebdbe4b984886e58f15b7d, type: 3}
       propertyPath: m_Constraints
