@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour
     }
 
     [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private Transform enemySpawnPosition;
+    [SerializeField] private Transform[] enemySpawnPositions;
     [SerializeField] private int totalEnemiesCount = 20;
     [SerializeField] private int maxEnemies = 3;
     [SerializeField] private Text enemiesCountText;
@@ -28,7 +28,7 @@ public class EnemyManager : MonoBehaviour
 
         for(int i = 0; i < maxEnemies; i++)
         {
-            SpawnEnemy(enemySpawnPosition.position);
+            SpawnEnemyRandomPos();
         }
     }
 
@@ -54,8 +54,14 @@ public class EnemyManager : MonoBehaviour
         if(enemiesCount > 0)
         {
             Debug.Log(enemiesCount);
-            SpawnEnemy(enemySpawnPosition.position);
+            SpawnEnemyRandomPos();
         }
+    }
+
+    void SpawnEnemyRandomPos()
+    {
+        Transform spawnPos = enemySpawnPositions[Random.Range(0, enemySpawnPositions.Length)];
+        SpawnEnemy(spawnPos.position);
     }
 
     public void SpawnEnemy(Vector3 pos)
