@@ -1,10 +1,14 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class player : MonoBehaviour
 {
     Rigidbody2D rb;
+
+    [Header("ÁßªÂãïÂäõ"), SerializeField] float movePower = 3500f;
+    [Header("„Å§„Å£„Å±„ÇäÂäõ"), SerializeField] float Force = 160f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +30,10 @@ public class player : MonoBehaviour
         {
             transform.rotation = Quaternion.FromToRotation(Vector2.up, dir);
         }
-        dir = dir * 3500 * Time.deltaTime;
-        //if (rb.velocity.magnitude < 20) //ëΩï™êßå¿ë¨ìx
+        dir = dir * movePower * Time.deltaTime;
+        //if (rb.velocity.magnitude < 20) //Â§öÂàÜÂà∂ÈôêÈÄüÂ∫¶
         {
-            rb.AddForce(dir); // óÕÇâ¡Ç¶ÇÈ
+            rb.AddForce(dir); // Âäõ„ÇíÂä†„Åà„Çã
         }
         if (Input.GetKeyUp(KeyCode.Z))
         {
@@ -44,10 +48,10 @@ public class player : MonoBehaviour
             GameManager.instance.GameOver();
         }
     }
-    void Attack()//Ç¬Ç¡ÇœÇËä÷êî
+    void Attack()//„Å§„Å£„Å±„ÇäÈñ¢Êï∞
     {
         Vector2 dir = transform.up;
-        rb.AddForce(dir*160, ForceMode2D.Impulse);
+        rb.AddForce(dir*Force, ForceMode2D.Impulse);
 
     }
 }
