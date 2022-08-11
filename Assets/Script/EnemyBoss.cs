@@ -9,13 +9,18 @@ public class EnemyBoss : MonoBehaviour
     Rigidbody2D rb;
     EnemyState state;
     float CurrentTime = 0;
-    float LimitTime = 1;
+    float LimitTime = 3;
+    int SpinCounter = 0;
+    float SpinTime = 0;
+    float SpinLimit = 5;
+    float SpinRelease = 7;
     
     public enum EnemyState
     {
         wait=0,
         attack=1,
-        end=2
+        end=2,
+        bossSpin=3
     }
     // Start is called before the first frame update
     void Start()
@@ -23,7 +28,7 @@ public class EnemyBoss : MonoBehaviour
         Player = GameObject.FindGameObjectsWithTag("Player");
         target = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>(); 
-        state = EnemyState.wait;
+        state = EnemyState.attack;
 
     }
 
@@ -32,10 +37,15 @@ public class EnemyBoss : MonoBehaviour
     {
         //時間を測る
         CurrentTime += Time.deltaTime;
+        
+        //待機状態分岐
         if(state == EnemyState.wait){
             Debug.Log("待機");
+            state = EnemyState.attack;
+
+        ///攻撃状態分岐
         }else if(state == EnemyState.attack){
-            // 対象物へのベクトルを算出
+        // 対象物へのベクトルを算出
             Vector2 toDirection = target.transform.position - transform.position;
             // 対象物へ回転する
             transform.rotation = Quaternion.FromToRotation(Vector2.up, toDirection);
@@ -43,26 +53,46 @@ public class EnemyBoss : MonoBehaviour
             if (rb.velocity.magnitude < 3) {
                 rb.AddForce (toDirection); // 力を加える
             }
+
+        //スピン状態
+        }else if(state == EnemyState.bossSpin){
+            if(SpinTime < SpinLimit){
+                SpinTime += Time.deltaTime;
+                Debug.Log("ぐるぐる");
+                transform.Rotate(new Vector2(0,2.0f));
+            }else{
+            
+            SpinTime = 0;
+            CurrentTime = 0;//入れてもダメだった
+            state = EnemyState.wait;
+            }
+
         }
-        //終わった時end状態の移行
+
+        //終了状態分岐
         if(GameManager.instance.isGameOver == true){
             //速さを0にする
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0f;
             state = EnemyState.end;
-            }else if(CurrentTime >= LimitTime){
-                CurrentTime=0;
-                //Stateを変える処理
-                //wait
-                if(state == EnemyState.wait){
-                    state = EnemyState.attack;
-                    //攻撃表示
-                    Debug.Log("攻撃中");
-                }else if(state == EnemyState.attack){
-                    state = EnemyState.wait;
-                    Debug.Log("休憩中");
-                }
+        }else if(SpinCounter == 20){
+            state = EnemyState.bossSpin;
+            SpinCounter = 0;
+        }else if(CurrentTime >= LimitTime){
+            CurrentTime=0;
+            //Stateを変える処理
+            if(state == EnemyState.wait){
+                state = EnemyState.attack;
+                //攻撃表示
+                Debug.Log("攻撃中");
+                SpinCounter += 1;
+            }else if(state == EnemyState.attack){
+                state = EnemyState.wait;
+                Debug.Log("休憩中");
+                SpinCounter += 1;
             }
+        }
+
 
     }
 }
