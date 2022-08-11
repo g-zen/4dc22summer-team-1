@@ -350,23 +350,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &1293767651 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3841532899216259904, guid: 256aa49cf69f94c2f8bc27b272ea91e5, type: 3}
-  m_PrefabInstance: {fileID: 3841532901055748942}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1293767652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1293767651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78c541755acfd4c7e925375319ae58b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1496218880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -380,7 +363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5122901107149012948, guid: ab870d2fc1ebdbe4b984886e58f15b7d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5122901107149012948, guid: ab870d2fc1ebdbe4b984886e58f15b7d, type: 3}
       propertyPath: m_TagString
@@ -487,10 +470,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3841532899216259933, guid: 256aa49cf69f94c2f8bc27b272ea91e5, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1113194814}
+    - target: {fileID: 3841532899216259934, guid: 256aa49cf69f94c2f8bc27b272ea91e5, type: 3}
+      propertyPath: m_Mass
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 3841532899216259933, guid: 256aa49cf69f94c2f8bc27b272ea91e5, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 256aa49cf69f94c2f8bc27b272ea91e5, type: 3}
