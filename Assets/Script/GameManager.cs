@@ -15,11 +15,13 @@ public class GameManager : MonoBehaviour
             return;
         }
         instance = this;
-
-        DontDestroyOnLoad(gameObject);
     }
 
     public GameObject gameOverUI;
+
+    public AudioClip gameBGM;
+    public AudioClip gameOverBGM;
+
     public bool isGameOver { get; private set; } = false;
     public bool isGameClear { get; private set; } = false;
 
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameOverUI.SetActive(false);
+        SoundManager.Instance.PlayBGM(gameBGM);
     }
 
     void Update()
@@ -49,6 +52,9 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
         Debug.Log("Game Over");
         gameOverUI.SetActive(true);
+
+        SoundManager.Instance.StopBGM();
+        SoundManager.Instance.PlaySE(gameOverBGM);
     }
 
     public void Retry()
