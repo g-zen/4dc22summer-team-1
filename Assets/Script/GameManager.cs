@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     }
 
     public GameObject gameOverUI;
+    public GameObject gameClearUI;
 
     public AudioClip gameBGM;
     public AudioClip gameOverBGM;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameOverUI.SetActive(false);
+        gameClearUI.SetActive(false);
         SoundManager.Instance.PlayBGM(gameBGM);
     }
 
@@ -43,6 +45,8 @@ public class GameManager : MonoBehaviour
 
         isGameClear = true;
         Debug.Log("Game Clear");
+
+        gameClearUI.SetActive(true);
     }
 
     public void GameOver()
