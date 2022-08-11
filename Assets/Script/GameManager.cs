@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     }
 
     public GameObject gameOverUI;
+    public bool isGameOver { get; private set; } = false;
+    public bool isGameClear { get; private set; } = false;
+
 
     void Start()
     {
@@ -33,11 +36,17 @@ public class GameManager : MonoBehaviour
 
     public void GameClear()
     {
+        if (isGameOver) return;
+
+        isGameClear = true;
         Debug.Log("Game Clear");
     }
 
     public void GameOver()
     {
+        if (isGameClear) return;
+
+        isGameOver = true;
         Debug.Log("Game Over");
         gameOverUI.SetActive(true);
     }
