@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class EnemyChaseRest : MonoBehaviour
+public class EnemyBoss : MonoBehaviour
 {
     GameObject[] Player; 
     GameObject target;
