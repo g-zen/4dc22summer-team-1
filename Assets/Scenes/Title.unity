@@ -730,7 +730,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: "\u30B9\u30BF\u30FC\u30C8"
 --- !u!222 &986568248
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1104,7 +1104,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2120130074}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2120130076}
+        m_TargetAssemblyTypeName: SceneButton, Assembly-CSharp
+        m_MethodName: TranceNextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2120130074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1155,4 +1167,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 541d3589efa70564b94317113b77bd03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSceneName: 
+  NextSceneName: SampleScene
