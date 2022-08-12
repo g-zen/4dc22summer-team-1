@@ -1319,4 +1319,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 541d3589efa70564b94317113b77bd03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSceneName: SampleScene
+  NextSceneName: HowtoPlay
