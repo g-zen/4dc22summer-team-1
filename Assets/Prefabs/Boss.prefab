@@ -101,7 +101,8 @@ MonoBehaviour:
   LimitTime: 3
   AdditionalTime: 2
   SpinOrder: 3
-  SpinLimit: 3
+  SpinLimit: 1
+  Speed: 3
 --- !u!114 &2332211157453477977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,11 +127,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
-  m_LinearDrag: 1
+  m_Mass: 30
+  m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a0001d290e4a47d4b9a441ed182191f6, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
