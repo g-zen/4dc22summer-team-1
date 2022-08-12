@@ -36,7 +36,13 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (isGameOver)
+        {
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                Retry();
+            }
+        }
     }
 
     public void GameClear()
