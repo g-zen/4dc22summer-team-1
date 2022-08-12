@@ -13,13 +13,17 @@ public class EnemyManager : MonoBehaviour
     }
 
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject bossPrefab;
     [SerializeField] private Transform[] enemySpawnPositions;
+    [SerializeField] private Transform bossSpawnPosition;
     [SerializeField] private int totalEnemiesCount = 20;
     [SerializeField] private int maxEnemies = 3;
     [SerializeField] private Text enemiesCountText;
+    [SerializeField] private AudioClip bossBGM;
 
     private int enemiesCount;
     private int killedEnemy = 0;
+    private bool bossSpawned = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +43,7 @@ public class EnemyManager : MonoBehaviour
             enemiesCountText.text = $"のこり {totalEnemiesCount - killedEnemy}人";
         }
 
+        /*
         if (GameManager.instance.isGameClear == false)
         {
             if(killedEnemy >= totalEnemiesCount)
@@ -46,6 +51,7 @@ public class EnemyManager : MonoBehaviour
                 GameManager.instance.GameClear();
             }
         }
+        */
     }
 
     public void OnEnemyDie()
@@ -56,6 +62,17 @@ public class EnemyManager : MonoBehaviour
             Debug.Log(enemiesCount);
             SpawnEnemyRandomPos();
         }
+        else if(killedEnemy >= totalEnemiesCount && !bossSpawned)
+        {
+            bossSpawned = true;
+            Debug.Log("SpawnBoss");
+            SpawnBoss(bossSpawnPosition.position);
+        }
+    }
+
+    public void OnBossDie()
+    {
+        GameManager.instance.GameClear();
     }
 
     void SpawnEnemyRandomPos()
@@ -70,5 +87,11 @@ public class EnemyManager : MonoBehaviour
 
         enemiesCount--;
         Instantiate(enemyPrefab, pos, Quaternion.identity);
+    }
+
+    public void SpawnBoss(Vector2 pos)
+    {
+        Instantiate(bossPrefab, pos, Quaternion.identity);
+        SoundManager.Instance.PlayBGM(bossBGM);
     }
 }

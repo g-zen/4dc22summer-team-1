@@ -170,15 +170,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3841532899216259904, guid: 256aa49cf69f94c2f8bc27b272ea91e5, type: 3}
+  bossPrefab: {fileID: 5330353650473282109, guid: f597888cc25d04f47a0357bcca0305f1, type: 3}
   enemySpawnPositions:
   - {fileID: 5123125505104009193}
   - {fileID: 6142811554598094572}
   - {fileID: 7537017935077796441}
   - {fileID: 1186048248466720171}
   - {fileID: 2073636357050675407}
+  bossSpawnPosition: {fileID: 5123125505104009193}
   totalEnemiesCount: 20
   maxEnemies: 3
   enemiesCountText: {fileID: 5123125503994618673}
+  bossBGM: {fileID: 8300000, guid: 6b1bca4a6ebf4c149948238ceef79fad, type: 3}
 --- !u!1 &5123125503994618679
 GameObject:
   m_ObjectHideFlags: 0
