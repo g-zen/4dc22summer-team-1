@@ -46,7 +46,8 @@ public class GameManager : MonoBehaviour
         isGameClear = true;
         Debug.Log("Game Clear");
 
-        gameClearUI.SetActive(true);
+        //gameClearUI.SetActive(true);
+        FadeManager.Instance.LoadScene("Clear", 0.5f);
     }
 
     public void GameOver()
