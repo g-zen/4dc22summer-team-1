@@ -15,6 +15,7 @@ public class EnemyBoss : MonoBehaviour
     [Header("回転するのは攻撃と待機を合わせて何回やった後か"), SerializeField]int SpinOrder; 
     float SpinTime = 0;//
     [Header("スピン時間"), SerializeField]float SpinLimit = 3;//
+    [Header("移動スピード"), SerializeField]float Speed = 3;
 
     
     public enum EnemyState
@@ -52,7 +53,7 @@ public class EnemyBoss : MonoBehaviour
             Vector2 toDirection = target.transform.position - transform.position;
             // 対象物へ回転する
             transform.rotation = Quaternion.FromToRotation(Vector2.up, toDirection);
-            this.transform.Translate(Vector2.up * Time.deltaTime * 0.9f);
+            this.transform.Translate(Vector2.up * Time.deltaTime * Speed);
             if (rb.velocity.magnitude < 3) {
                 rb.AddForce (toDirection); // 力を加える
             }
