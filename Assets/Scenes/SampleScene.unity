@@ -760,6 +760,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2170777583325466217, guid: ab870d2fc1ebdbe4b984886e58f15b7d, type: 3}
+      propertyPath: Force
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -2170777583325466217, guid: ab870d2fc1ebdbe4b984886e58f15b7d, type: 3}
       propertyPath: movePower
       value: 14000
       objectReference: {fileID: 0}
@@ -810,6 +814,10 @@ PrefabInstance:
     - target: {fileID: 5871114809863238261, guid: ab870d2fc1ebdbe4b984886e58f15b7d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833946306155106811, guid: ab870d2fc1ebdbe4b984886e58f15b7d, type: 3}
+      propertyPath: m_Mass
+      value: 10.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab870d2fc1ebdbe4b984886e58f15b7d, type: 3}
