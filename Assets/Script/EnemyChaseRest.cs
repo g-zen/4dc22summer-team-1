@@ -11,6 +11,7 @@ public class EnemyChaseRest : MonoBehaviour
     EnemyState state;
     float CurrentTime = 0;
     [Header("攻撃と待機が入れ変わる時間"), SerializeField]float LimitTime;
+    Animator enemyAnimation;
     
     public enum EnemyState
     {
@@ -23,7 +24,8 @@ public class EnemyChaseRest : MonoBehaviour
     {
         Player = GameObject.FindGameObjectsWithTag("Player");
         target = GameObject.FindGameObjectWithTag("Player");
-        rb = GetComponent<Rigidbody2D>(); 
+        rb = GetComponent<Rigidbody2D>();
+        enemyAnimation = GetComponent<Animator>();
         state = EnemyState.attack;
 
     }
@@ -31,11 +33,12 @@ public class EnemyChaseRest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //
         //時間を測る
         CurrentTime += Time.deltaTime;
         if(state == EnemyState.wait){
             Debug.Log("待機");
-
+            
         }else if(state == EnemyState.attack){
             // 対象物へのベクトルを算出
             Vector2 toDirection = target.transform.position - transform.position;
@@ -49,6 +52,7 @@ public class EnemyChaseRest : MonoBehaviour
 
         //終わった時end状態の移行
         if(GameManager.instance.isGameOver == true){
+            enemyAnimation.SetBool("Walk", false);
             //速さを0にする
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0f;
