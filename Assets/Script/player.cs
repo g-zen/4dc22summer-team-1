@@ -9,7 +9,7 @@ public class player : MonoBehaviour
     [Header("移動力"), SerializeField] float movePower = 3500f;
     [Header("つっぱり力"), SerializeField] float Force = 160f;
 
-    [SerializeField]Animator anim;
+    [SerializeField] Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,13 @@ public class player : MonoBehaviour
         {
             Attack();
         }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            confusion();
+        }
     }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -51,11 +57,25 @@ public class player : MonoBehaviour
         {
             GameManager.instance.GameOver();
         }
+
     }
     void Attack()//つっぱり関数
     {
         Vector2 dir = transform.up;
-        rb.AddForce(dir*Force, ForceMode2D.Impulse);
+        rb.AddForce(dir * Force, ForceMode2D.Impulse);
 
     }
+    void confusion()//混乱関数　ボスの回転雷に触れた際
+                    //混乱してmovepowerが０になり　操作が反転する
+    {
+        movePower = -14000;
+        Force = -480;
+        Invoke("recovery", 5);
+    }
+    void recovery()
+    {
+        movePower = 14000;
+        Force = 480;
+    }
+
 }
