@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     {
         if (isGameOver)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.Z) || Input.GetButtonDown("Fire1"))
             {
                 Retry();
             }

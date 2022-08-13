@@ -39,7 +39,7 @@ public class player : MonoBehaviour
         {
             rb.AddForce(dir); // 力を加える
         }
-        if (Input.GetKeyUp(KeyCode.Z))
+        if (Input.GetKeyUp(KeyCode.Z) || Input.GetButtonUp("Fire1"))
         {
             Attack();
         }
